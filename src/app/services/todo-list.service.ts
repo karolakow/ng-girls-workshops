@@ -43,6 +43,12 @@ export class TodoListService {
     this.saveList();
   }
 
+  editItem(item: TodoItem, newTitle: string) {
+    const index = this.todoList.indexOf(item);
+    this.todoList[index] = { ...item, title: newTitle };
+    this.saveList();
+  }
+
   deleteItem(item: TodoItem) {
     const index = this.todoList.indexOf(item);
     this.todoList.splice(index, 1);

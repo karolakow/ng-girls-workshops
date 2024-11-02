@@ -18,6 +18,7 @@ import { TodoItemComponent } from '../todo-item/todo-item.component';
             [item]="todoItem"
             (remove)="removeItem($event)"
             (update)="updateItem($event.item, $event.changes)"
+            (edit)="editItem($event.item, $event.newTitle)"
           />
         </li>
         }
@@ -43,5 +44,9 @@ export class ListManagerComponent {
 
   updateItem(item: TodoItem, changes: any) {
     this.todoListService.updateItem(item, changes);
+  }
+
+  editItem(item: TodoItem, newTitle: string) {
+    this.todoListService.editItem(item, newTitle);
   }
 }
