@@ -8,14 +8,16 @@ import { TodoItemComponent } from '../todo-item/todo-item.component';
   standalone: true,
   imports: [TodoItemComponent, InputButtonUnitComponent],
   template: `
-    <app-input-button-unit (submit)="addItem($event)"></app-input-button-unit>
-    <ul>
-      @for (todoItem of todoList; track todoItem.title) {
-      <li>
-        <app-todo-item [item]="todoItem" />
-      </li>
-      }
-    </ul>
+    <div class="todo-app">
+      <app-input-button-unit (submit)="addItem($event)"></app-input-button-unit>
+      <ul>
+        @for (todoItem of todoList; track todoItem.title) {
+        <li>
+          <app-todo-item [item]="todoItem" />
+        </li>
+        }
+      </ul>
+    </div>
   `,
   styleUrl: './list-manager.component.scss',
 })

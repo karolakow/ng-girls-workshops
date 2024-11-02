@@ -15,7 +15,7 @@ import { TodoItemComponent } from './todo-item/todo-item.component';
   ],
   //templateUrl: './app.component.html',
   template: `
-    <h1>Welcome to {{ title }}!</h1>
+    <h1 class="app-title">Welcome to {{ title }}!</h1>
     <app-list-manager></app-list-manager>
     <!-- @if(userLoggedIn) {
     <h1>Welcome!</h1>

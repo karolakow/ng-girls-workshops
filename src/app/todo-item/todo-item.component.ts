@@ -5,7 +5,7 @@ import { TodoItem } from '../interfaces/todo-item';
   selector: 'app-todo-item',
   standalone: true,
   imports: [],
-  template: `{{ item.title }}`,
+  template: `<div class="todo-item">{{ item.title }}</div>`,
   styleUrl: './todo-item.component.scss',
 })
 export class TodoItemComponent {

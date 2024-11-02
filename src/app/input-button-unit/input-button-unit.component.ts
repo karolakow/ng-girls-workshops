@@ -5,8 +5,9 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   standalone: true,
   imports: [],
   template: `
-    <p>input-button-unit works! The item title is: {{ title }}</p>
+    <!-- <p>input-button-unit works! The item title is: {{ title }}</p> -->
     <input
+      class="todo-input"
       #inputElementRef
       [value]="title"
       (keyup.enter)="submitValue(getInputValue($event))"
@@ -15,7 +16,9 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
     <input [value]="generateTitle()" />
     <p>{{ generateTitle() }}</p> -->
     <!-- <input id="my-input" /> -->
-    <button (click)="submitValue(inputElementRef.value)">Save</button>
+    <button class="btn" (click)="submitValue(inputElementRef.value)">
+      Save
+    </button>
   `,
   styleUrl: './input-button-unit.component.scss',
 })
