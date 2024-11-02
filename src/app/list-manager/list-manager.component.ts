@@ -30,6 +30,6 @@ export class ListManagerComponent {
   }
 
   addItem(title: string) {
-    this.todoList.push({ title });
+    this.todoListService.addItem({ title });
   }
 }
