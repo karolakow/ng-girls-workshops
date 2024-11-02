@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { InputButtonUnitComponent } from './input-button-unit/input-button-unit.component';
+import { TodoItem } from './interfaces/todo-item';
 import { TodoItemComponent } from './todo-item/todo-item.component';
 
 @Component({
@@ -32,7 +33,7 @@ export class AppComponent {
   title = 'todo-list';
   userLoggedIn = false;
 
-  todoList = [
+  todoList: TodoItem[] = [
     { title: 'install NodeJS' },
     { title: 'install Angular CLI' },
     { title: 'create new app' },
