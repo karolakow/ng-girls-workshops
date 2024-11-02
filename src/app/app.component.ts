@@ -1,11 +1,12 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { InputButtonUnitComponent } from './input-button-unit/input-button-unit.component';
+import { TodoItemComponent } from './todo-item/todo-item.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, InputButtonUnitComponent],
+  imports: [RouterOutlet, InputButtonUnitComponent, TodoItemComponent],
   //templateUrl: './app.component.html',
   template: `
     <h1>Welcome to {{ title }}!</h1>
@@ -13,7 +14,7 @@ import { InputButtonUnitComponent } from './input-button-unit/input-button-unit.
     <ul>
       @for (todoItem of todoList; track todoItem.title) {
       <li>
-        {{ todoItem.title }}
+        <app-todo-item [item]="todoItem" />
       </li>
       }
     </ul>
