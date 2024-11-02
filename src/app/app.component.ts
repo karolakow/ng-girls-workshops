@@ -11,7 +11,7 @@ import { TodoItemComponent } from './todo-item/todo-item.component';
   //templateUrl: './app.component.html',
   template: `
     <h1>Welcome to {{ title }}!</h1>
-    <app-input-button-unit></app-input-button-unit>
+    <app-input-button-unit (submit)="addItem($event)"></app-input-button-unit>
     <ul>
       @for (todoItem of todoList; track todoItem.title) {
       <li>
@@ -49,5 +49,9 @@ export class AppComponent {
   changeTitle(newTitle: string) {
     console.log(newTitle);
     this.title = newTitle;
+  }
+
+  addItem(title: string) {
+    this.todoList.push({ title });
   }
 }

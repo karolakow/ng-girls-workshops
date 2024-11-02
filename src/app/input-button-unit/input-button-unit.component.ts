@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-input-button-unit',
@@ -9,18 +9,20 @@ import { Component, OnInit } from '@angular/core';
     <input
       #inputElementRef
       [value]="title"
-      (keyup.enter)="changeTitle(getInputValue($event))"
+      (keyup.enter)="submitValue(getInputValue($event))"
     />
     <!-- <p>Generated title</p>
     <input [value]="generateTitle()" />
     <p>{{ generateTitle() }}</p> -->
     <!-- <input id="my-input" /> -->
-    <button (click)="changeTitle(inputElementRef.value)">Save</button>
+    <button (click)="submitValue(inputElementRef.value)">Save</button>
   `,
   styleUrl: './input-button-unit.component.scss',
 })
 export class InputButtonUnitComponent implements OnInit {
   title = 'Hello world';
+
+  @Output() submit: EventEmitter<string> = new EventEmitter<string>();
 
   constructor() {
     // setTimeout(() => {
@@ -45,5 +47,9 @@ export class InputButtonUnitComponent implements OnInit {
 
   getInputValue(event: Event) {
     return (event.target as HTMLInputElement).value;
+  }
+
+  submitValue(newTitle: string) {
+    this.submit.emit(newTitle);
   }
 }
