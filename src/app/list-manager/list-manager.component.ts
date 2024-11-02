@@ -14,7 +14,7 @@ import { TodoItemComponent } from '../todo-item/todo-item.component';
       <ul>
         @for (todoItem of todoList; track todoItem.title) {
         <li>
-          <app-todo-item [item]="todoItem" />
+          <app-todo-item [item]="todoItem" (remove)="removeItem($event)" />
         </li>
         }
       </ul>
@@ -31,5 +31,9 @@ export class ListManagerComponent {
 
   addItem(title: string) {
     this.todoListService.addItem({ title });
+  }
+
+  removeItem(item: TodoItem) {
+    this.todoListService.deleteItem(item);
   }
 }
